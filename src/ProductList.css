@@ -43,9 +43,21 @@ body {
 .product-grid {
     display:flex;
     flex-direction: column;
+    padding: 40px;
     width: 100vw;
     align-items: center;
     justify-content: center;
+}
+.category-heading {
+    font-family: 'Arial, sans-serif';
+    font-size: 28px;
+    color: #351190; /* Green color for a nature theme */
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #6cdb40;
+    border-radius: 8px;
 }
 .product-list {
     display: flex;
