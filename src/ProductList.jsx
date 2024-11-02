@@ -4,7 +4,7 @@ import CartItem from './CartItem';
 import { useSelector, useDispatch } from "react-redux";
 import { addItem, removeItem, updateQuantity } from './CartSlice';
 
-function ProductList() {
+function ProductList({ getLandingPage }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [addedToCart, setAddedToCart] = useState({});
@@ -278,7 +278,7 @@ function ProductList() {
                     <div className="luxury">
                         <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
                         <a
-                            onClick={(e) => { e.preventDefault(); console.log("Happy"); }}
+                            onClick={(e) => { e.preventDefault(); console.log("Happy"); getLandingPage(); }}
                             href="/e-plantShopping/"
                             style={{ textDecoration: 'none', marginLeft: '20px', fontFamily: "'Baloo Bhai 2', cursive" }}>
                             <div>
@@ -343,8 +343,10 @@ function ProductList() {
                                         category.plants.map((plant, plantIndex) => (
                                             <div className='product-card'>
                                                 {/* Show image, and show text in case of image loading failure */}
-                                                <img className="product-image" src={plant.image} alt={plant.name} />
                                                 <div className="product-title">{plant.name}</div>
+                                                <img className="product-image" src={plant.image} alt={plant.name} />
+                                                <p className="product-price">{plant.cost}</p>
+                                                <p>{plant.description}</p>
                                                 {/*Similarly like the above plant.name show other details like description and cost*/}
                                                 {
                                                     (addedToCart.hasOwnProperty(plant.name) && addedToCart[plant.name] === true) ?
